@@ -1,0 +1,51 @@
+PROCEDURE saisir_longeur(VAR n1:INTEGER)
+VAR
+
+BEGIN
+    REPEAT
+        write ("set the lenght of you first table");
+        read(n1);
+    UNTIL (n1> 0);
+END
+
+PROCEDURE saisir_array(nb:INTEGER; VAR:arr: ARRAY_OF FLOAT[nb];)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO 1 STEP 1  DO
+     write("entrer la",i+1,"cordonné du premier vecteur");
+     read(arr[i]);
+    END_FOR
+END
+
+PROCEDURE permutation(x,y : INTEGER)
+VAR
+    aux : INTEGER ;
+BEGIN
+    y := x;
+    x := aux;
+END
+
+ALGORITHM Insertion_sort
+VAR
+    arr : ARRAY_OF INTEGER;
+    nb,i,j,aux : INTEGER;
+    test :BOOLEAN;
+BEGIN
+    saisir_longeur(nb); 
+    saisir_array(arr);
+    FOR i FROM 1 TO nb-1 STEP 1  DO
+    j=i;
+    aux = arr[j];
+    test = faux ;
+        REPEAT
+        IF (aux< arr[j-1]) THEN
+        arr[j] := arr[j-1];
+        j =j-1;
+        ELSE
+            test = vrai;
+            arr[j] := aux
+        END_IF
+        UNTIL (test = vrai or j = 0 )
+    END_FOR
+END
